@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://tools.aizhan.com/utf8/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="applicable-device" content="pc">
+	<meta name="viewport" content="width=1280">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="referrer" content="origin">
+	<meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="ejZIMy5ZTzQ.ehxDRAsOfB8AEHZoHhlDI2ICcFZ0elUjfRp6TBUjbQ==">
+	<title>Internet PLUS -- Tool</title>
+	<link rel="dns-prefetch" href="https://statics.aizhan.com/">
+	<link rel="icon" href="https://cdn.u1.huluxia.com/g3/M01/5A/0C/wKgBOV6j1-2ASzk7AAAmNMv_3_I902.png" type="image/x-icon">
+	<link rel="shortcut icon" href="https://cdn.u1.huluxia.com/g3/M01/5A/0C/wKgBOV6j1-2ASzk7AAAmNMv_3_I902.png" type="image/x-icon">
+	<link rel="stylesheet" href="./UTF-8编码转换工具_爱站网_files/style.css">
+	<script src="./UTF-8编码转换工具_爱站网_files/hm.js"></script><script type="text/javascript" src="./UTF-8编码转换工具_爱站网_files/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="./UTF-8编码转换工具_爱站网_files/jquery.cookie.js"></script>
+	<script type="text/javascript" src="./UTF-8编码转换工具_爱站网_files/script.js"></script>
+	<script type="text/javascript" src="./UTF-8编码转换工具_爱站网_files/zone.js"></script>
+	<meta name="keywords" content="UTF-8编码转换工具">
+<meta name="description" content="UTF-8编码转换工具。">
+<link href="./UTF-8编码转换工具_爱站网_files/tools.css" rel="stylesheet" position="1"></head>
+<body>
+	
+		
+						
+	</div>
+	<script type="text/javascript">
+		if(typeof(all_text_content)=='undefined'){
+			console.log("广告被过滤！");
+			$('.azone').remove();
+		}else{
+			$('#all_text_content').html(all_text_content);
+			$('#con_top_content').html(con_top_content);
+		}
+	</script>
+	<script type="text/javascript">
+	function ConvUtf(obj,btn) {
+		document.getElementById("result").value = obj.value.replace(/[^\u0000-\u00FF]/g,function ($0) { return escape($0).replace(/(%u)(\w { 4 })/gi, "&#x$2; ") }); }
+	function ResChinese(obj,btn) {
+		document.getElementById("contents").value = unescape(obj.value.replace(/&#x/g, '%u').replace(/; /g, '')); }
+</script>
+<div class="tool-wrap">
+	<div class="tool-title">
+		<div class="search-tit-bg"><i class="ico-tit-utf8"></i></div>
+		<h2>UTF-8编码转换</h2>
+	</div>
+	<div class="tool-content">
+		<div class="bbox">
+			<div class="clearfix">
+				<div class="fl">
+					<p>要转换的文字：</p>
+				</div>
+				<div class="fr">
+					<div class="area">
+						<textarea id="contents" name="contents" class="WStxt" rows="10">请把你需要转换的内容粘贴在这里。</textarea>
+					</div>
+					<div class="mb10 clearfix">
+						<input class="blue-button" type="button" value="中文 转换 UTF-8 ↓" onclick="ConvUtf(contents,this);">
+						<input class="blue-button" type="button" value="UTF-8 还原 中文 ↑" onclick="ResChinese(result,this);">
+					</div>
+				</div>
+			</div>
+			<div class="clearfix">
+				<div class="fl">
+					<p>转换结果如下：</p>
+				</div>
+				<div class="fr">
+					<div class="area">
+						<textarea id="result" name="result" class="WStxt" rows="10"></textarea>
+					</div>
+					<div class="mb10 clearfix">
+						<input class="blue-button" id="Button2" type="button" value="清空" onclick="jQuery(&#39;#result&#39;).val(&#39;&#39;);">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cha-intro">
+		<div class="title">
+			
+		</div>
+		<div class="content">
+			
+		</div>
+	</div>
+</div>	
+
+
+</body></html>

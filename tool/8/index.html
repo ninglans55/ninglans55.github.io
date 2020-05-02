@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://www.ab173.com/format/jshtml.php -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+		<title>Internet PLUS -- Tool</title>
+		<meta name="keywords" content="js格式化,js在线格式化,html在线格式化,js代码格式化,JS在线加密,JS加密">
+		<meta name="description" content="js/html压缩格式化工具可以对JS，HTML，混合HTML和JS进行格式化排版，整齐的进行显示。可以对JS进行加密，加密压缩。">
+		<link href="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/bootstrap.min.css" rel="stylesheet">
+		<link href="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/layer.min.css" rel="stylesheet">
+		<link href="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/global.css" rel="stylesheet" type="text/css">
+		<script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/push.js"></script><script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/jquery.min.js"></script>
+		<script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/bootstrap.min.js"></script>
+		<script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/global.js"></script>
+		<script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/clipboard.min.js"></script>
+<!--[if lt IE 9]>
+  <script src="/static/js/respond.min.js"></script>
+<![endif]-->
+	<script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/share.js"></script><link rel="stylesheet" href="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/layer.css" id="layuicss-skinlayercss"><link rel="stylesheet" href="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/share_style1_24.css"></head>
+	<body>
+<div class="aw-container-wrap">
+			<div class="container">
+				<div class="row">
+					<div class="aw-content-wrap clearfix">
+						<div class=" aw-main-content">
+							<nav class="navbar navbar-default" id="top_menu">
+								<div class="container-fluid">
+									<ul class="nav navbar-nav" style="width: 100%;">
+			
+			
+			
+							<script>
+							var showaban = true;
+								var storageKey = "newtools20180824";
+								if(window.localStorage.getItem(storageKey)==null){
+									$("#convertTools").after('<span class="newFeatureTip">●</span>');
+								}
+							</script>
+							<div style="clear:both"></div>
+<blockquote id="lishi" class="layui-elem-quote layui-quote-nm" style="margin-bottom: 5px;display:none;padding: 4px 20px;font-size:13px;text-align: left;">
+ 您最近使用了：<span id="history"></span>
+</blockquote><!--Tool-MainWrap-begin-->
+
+	<div class="panel-heading">
+		<div class="media">
+			<div class="media-body">
+				<h1 class="media-heading">JavaScript/HTML格式化</h1>
+				<div id="desc1">js/html压缩格式化工具,可以把混乱的代码进行分行，可以对JS，HTML进行格式化排版，整齐的进行显示。</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel-body">
+		<!--内容块开始-->
+		<textarea id="content" name="RawJson" class="json_input top10" rows="16" style="width: 100%;" spellcheck="false" placeholder="请输入Javascript 或者 HTML 代码"></textarea>
+		<div class="btn-group" role="group" aria-label="...">
+           <button id="sels" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    制表符缩进<span class="caret"></span>
+		  </button>
+		  <ul class="dropdown-menu">
+		  	<li><a href="javascript:;" onclick="sj(1)">1个空格缩进</a></li>
+		    <li><a href="javascript:;" onclick="sj(2)">2个空格缩进</a></li>
+		    <li><a href="javascript:;" onclick="sj(4)">4个空格缩进</a></li>
+		    <li><a href="javascript:;" onclick="sj(8)">8个空格缩进</a></li>
+		  </ul>
+		  <button type="button" class="btn btn-primary" onclick="return do_js_beautify();" id="beautify">格式化</button>
+		  <button type="button" class="btn btn-primary" onclick="pack_js(0);">普通压缩</button>
+		  <button type="button" class="btn btn-primary" onclick="pack_js(1);">加密压缩</button>
+		  <button type="button" class="btn btn-primary" onclick="change();">JS/HTML互转</button>
+		  <button type="button" class="btn btn-danger" onclick="Empty();">清空结果</button>
+		</div>
+		<!--内容块结束-->
+	</div>
+	<input type="hidden" id="tabsize" value="1">
+	<div class="panel-footer"></div>
+</div>
+<script type="text/javascript">
+	if(window.localStorage && localStorage.getItem("content2format")){
+	 	document.getElementById('content').value = localStorage.getItem("content2format");
+	 	localStorage.setItem("content2format","");
+	}
+	
+
+	function sj(s){
+		$("#tabsize").val(s);
+		$("#sels").text(s+"个空格缩进");
+	}
+
+    function do_js_beautify() {
+        document.getElementById('beautify').disabled = true;
+        js_source = document.getElementById('content').value.replace(/^\s+/, '');
+        tabsize = document.getElementById('tabsize').value;
+        tabchar = ' ';
+        if (tabsize == 1) {
+            tabchar = '\t';
+        }
+        if (js_source && js_source.charAt(0) === '<') {
+            document.getElementById('content').value = style_html(js_source, tabsize, tabchar, 80);
+        } else {
+            document.getElementById('content').value = js_beautify(js_source, tabsize, tabchar);
+        }
+        document.getElementById('beautify').disabled = false;
+        return false;
+    }
+    function pack_js(base64) {
+        var input = document.getElementById('content').value.replace(/^\s+|\s+$/g,"");
+		if(input == ''){
+			alert('请输入需要压缩的内容!');
+			return;
+		}
+		
+        var packer = new Packer;
+        if (base64) {
+            var output = packer.pack(input, 1, 0);
+        } else {
+            var output = packer.pack(input, 0, 0);
+        }
+        document.getElementById('content').value = output;
+    }
+    function Empty() {
+        document.getElementById('content').value = '';
+        document.getElementById('content').select();
+    }
+	
+	 function rechange(){
+ document.getElementById('content').value=document.getElementById('content').value.replace(/document.writeln\("/g,"").replace(/"\);/g,"").replace(/\\\"/g,"\"").replace(/\\\'/g,"\'").replace(/\\\//g,"\/").replace(/\\\\/g,"\\")
+ }
+ function changeIt(){
+ document.getElementById('content').value="document.writeln(\""+document.getElementById('content').value.replace(/\\/g,"\\\\").replace(/\\/g,"\\/").replace(/\'/g,"\\\'").replace(/\"/g,"\\\"").split('\n').join("\");\ndocument.writeln(\"")+"\");"
+ }
+	
+	var ischange = false;
+	function change(){
+		if(!ischange){
+			changeIt();
+			
+		}else{
+			rechange();
+		}
+		ischange = !ischange;
+	}
+	
+    function GetFocus() {
+			document.getElementById('content').focus();
+    }
+</script>
+<!-- content ed -->
+<script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/layer.min.js"></script>
+</div></div></div></div></div>
+<script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/common.js"></script><div class="modal fade" id="mod" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><div class="modal-dialog" role="document" style="width: 96%;"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button><h4 class="modal-title" id="mod_title">扫描二维码付款</h4></div><div class="modal-body" id="mod_body" style="text-align: center;"></div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button></div></div></div></div>
+<div style="display:none;">
+<span id="cnzz_stat_icon_1259236301"><a href="https://www.cnzz.com/stat/website.php?web_id=1259236301" target="_blank" title="站长统计">站长统计</a></span><script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/stat.php" type="text/javascript"></script><script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/core.php" charset="utf-8" type="text/javascript"></script></div>
+<script src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/11.0.1.js" id="sozz"></script><script charset="utf-8" src="./js格式化-JavaScript_HTML格式化-html格式化代码-在线代码格式化_files/ab77b6ea7f3fbf79.js"></script>
+
+</body></html>

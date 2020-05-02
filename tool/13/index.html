@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://tool.mkblog.cn/qqche/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Internet PLUS -- Tool</title>
+    <meta name="description" content="QQ花样撤回消息">
+    <meta name="keywords" content="QQ花样撤回消息,在线工具箱,工具箱,网页工具箱,孟坤工具箱,孟坤软件,孟坤工具箱网页版">
+    
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="./QQ花样撤回消息 - 孟坤工具箱网页版_files/bootstrap.min.css">
+    
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="./QQ花样撤回消息 - 孟坤工具箱网页版_files/push.js"></script><script src="./QQ花样撤回消息 - 孟坤工具箱网页版_files/hm.js"></script><script src="./QQ花样撤回消息 - 孟坤工具箱网页版_files/jquery.min.js"></script>
+    
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="./QQ花样撤回消息 - 孟坤工具箱网页版_files/bootstrap.min.js"></script>
+    
+    <!-- 页面通用自定义css文件 -->
+    <link rel="stylesheet" href="./QQ花样撤回消息 - 孟坤工具箱网页版_files/style.css">
+    
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!--返回顶部插件-->
+    <script type="text/javascript" src="./QQ花样撤回消息 - 孟坤工具箱网页版_files/scrolltopcontrol.js"></script>
+   
+</head> 
+
+<body>
+
+<div id="particles"></div>
+
+<div class="container nav-main">
+
+<!--/.nav-collapse -->
+</div><!--/.container-fluid（100%宽度） -->
+</nav>
+
+</div><!--<div class="container">-->
+
+<div class="container">
+    
+
+
+
+<div class="panel panel-default form-horizontal">
+<div class="panel-heading">QQ花样撤回消息</div>
+<div class="panel-body">
+
+    <div class="form-group">
+        <label for="front" class="col-sm-2 control-label">请输入前缀：</label>
+        <div class="col-sm-10">
+            <input id="front" type="text" class="form-control" value="你爸爸" placeholder="输入前缀" onchange="view();" onpropertychange="view();" oninput="view();">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="behind" class="col-sm-2 control-label">请输入后缀：</label>
+        <div class="col-sm-10">
+            <input id="behind" type="text" class="form-control" value="并打了你一顿" placeholder="输入后缀" onchange="view();" onpropertychange="view();" oninput="view();">
+        </div>
+    </div>
+
+    <div class="form-group text-center">
+        <button class="btn btn-info" onclick="go()">生 成</button>
+    </div>
+    
+    <div class="form-group">
+        <label for="output" class="col-sm-2 control-label">生成结果：</label>
+        <div class="col-sm-10">
+            <div class="input-group">
+                <input id="output" type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" onclick="copyingTxt(&#39;output&#39;)">复制</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label for="behind" class="col-sm-2 control-label">效果预览：</label>
+        <div class="col-sm-10 text-center">
+            <span class="label label-default" id="preview">你爸爸撤回了一条消息并打了你一顿</span>
+        </div>
+    </div>
+</div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">工具简介</div>
+    <div class="panel-body">
+    QQ花样撤回消息使用方法：将生成的结果改为你的群昵称，然后在群里发一条消息，然后撤回，在其它群友那边显示的消息效果就如上述预览效果一样<br>
+    注：只在QQ群里有效
+    </div>
+</div>
+
+<script type="text/javascript">
+    // 预览
+    function view() {
+        $("#preview").html($("#front").val() + "撤回了一条消息" + $("#behind").val());
+    }
+    
+    // 生成
+    function go() {
+        $("#output").val($("#front").val() + String.fromCharCode(8238) + $("#behind").val().split("").reverse().join("") + String.fromCharCode(8237));
+        $("#output").select(); 
+    }
+
+    // 复制
+    function copyingTxt(str)  //复制文本
+	{
+		document.getElementById(str).select(); 
+		document.execCommand("Copy"); 
+	}
+	
+	view();
+</script>
+
+
+<footer class="main-footer">
+    
+    
+</footer>
+
+</div><!--class="container"中部容器-->
+
+<!--孟坤工具箱网页版通用js文件-->
+<script type="text/javascript" src="./QQ花样撤回消息 - 孟坤工具箱网页版_files/jquery.mktoolbox.js"></script>
+
+<style></body></style>
+
+ 
+ 

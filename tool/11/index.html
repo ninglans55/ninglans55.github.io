@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://tool.mkblog.cn/ocr/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>文字识别 - 孟坤工具箱网页版</title>
+    <meta name="description" content="免费的文字在线识别工具，支持多场景下的文字检测识别，能识别所有常用字和大部分生僻字">
+    <meta name="keywords" content="在线OCR,在线文字识别,文字识别,ocr文字识别软件,图片文字识别软件,扫描文字识别软件,pdf文字识别软件,在线工具箱,工具箱,网页工具箱,孟坤工具箱,孟坤软件,孟坤工具箱网页版">
+    
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="./文字识别 - 孟坤工具箱网页版_files/bootstrap.min.css">
+    
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="./文字识别 - 孟坤工具箱网页版_files/push.js"></script><script src="./文字识别 - 孟坤工具箱网页版_files/hm.js"></script><script src="./文字识别 - 孟坤工具箱网页版_files/jquery.min.js"></script>
+    
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="./文字识别 - 孟坤工具箱网页版_files/bootstrap.min.js"></script>
+    
+    <!-- 页面通用自定义css文件 -->
+    <link rel="stylesheet" href="./文字识别 - 孟坤工具箱网页版_files/style.css">
+    
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!--返回顶部插件-->
+    <script type="text/javascript" src="./文字识别 - 孟坤工具箱网页版_files/scrolltopcontrol.js"></script>
+    
+    <!--动态背景插件-->
+    <script type="text/javascript" src="./文字识别 - 孟坤工具箱网页版_files/jquery.particleground.min.js"></script>
+    
+    <!--加载动态背景-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#particles').particleground({
+                dotColor: '#5cbdaa',
+                lineColor: '#5cbdaa'
+            });
+        });
+    </script>
+    
+    <!-- ZeroClipboard插件 -->
+<script src="./文字识别 - 孟坤工具箱网页版_files/ZeroClipboard.min.js"></script>
+
+<style>
+.form-upload {
+    position: relative;
+}
+.upbg, .box {
+    background:#222;
+    color:#FFF;
+    display:block;
+    width:100%;
+    height:400px;
+    line-height:400px;
+    text-align:center;
+}
+.upbg {
+    position:absolute;
+    z-index:1;
+    cursor:pointer;
+    opacity:0;
+}
+.hide-first {
+    display: none;
+}
+</style>
+
+</head> 
+
+<body>
+
+<div id="particles"><canvas class="pg-canvas" width="1863" height="917"></canvas></div>
+
+<div class="container nav-main">
+
+
+
+
+	
+	<!--/.nav-collapse -->
+</div><!--/.container-fluid（100%宽度） -->
+</nav>
+
+</div><!--<div class="container">-->
+
+<div class="container">
+    
+
+<div class="panel panel-default">
+    <div class="panel-heading">文字识别</div>
+    <div class="panel-body">
+        
+        <div class="form-upload">
+            <form enctype="multipart/form-data" id="ocr-upload">
+                
+            <input name="file" type="file" class="upbg" id="update" multiple="true"> 
+            
+            </form>
+            
+            <div class="box" id="status">选择或拖拽图像到这里进行识别</div>
+        </div>
+        
+        <div class="hide-first row">
+            <!-- 图片预览区域 -->
+            <div class="col-md-6 text-center" style="margin-bottom: 20px">
+                <p class="text-left">图片预览：</p>
+                <img id="img-preview" class="img-responsive img-thumbnail" alt="图片预览" title="图片预览">
+            </div>
+            
+            <!-- 识别结果 -->
+            <div class="col-md-6">
+                <p>识别结果：</p>
+                <textarea id="ocr-result" class="form-control" rows="10"></textarea>
+                
+                <div class="form-group" style="margin-top: 20px">
+                    <button id="re-upload" class="btn btn-default" type="button">
+                        <span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span> 
+                        重新选择
+                    </button>
+                    <button id="copy" class="btn btn-success" type="button" data-clipboard-target="ocr-result">
+                        <span class="glyphicon glyphicon-copy" aria-hidden="true"></span> 
+                        复制
+                    </button>
+                </div>
+            </div>
+        
+        </div> <!-- hide -->
+    </div>
+</div>
+
+<script>
+// 复制插件
+var clip = new ZeroClipboard($("#copy"));
+
+$("#re-upload").click(function() {
+    $(".hide-first").hide();
+    $(".form-upload").show();
+    $("#update").click();
+});
+
+// 选定文件即上传
+update.onchange = function() {
+    
+    if(!this.files || !this.files[0]) return;
+    var imgFile = this.files[0];
+    if(imgFile.type.indexOf('image') != 0) return alert('这不是一个图像文件！');
+    
+    /* 显示图片预览 */
+    var objUrl = getObjectURL(this.files[0]);
+    if (objUrl) {
+        $("#img-preview").attr("src", objUrl);
+    }
+    
+    var formData = new FormData($('#ocr-upload')[0]);
+    $.ajax({
+        url: 'api.php',
+        type: 'POST',
+        dataType : "text",
+        xhr: function() {
+            myXhr = $.ajaxSettings.xhr();
+            if(myXhr.upload){
+                myXhr.upload.addEventListener('progress', function(e) {
+                    if(e.lengthComputable) {
+                        var progress = e.loaded/e.total;
+                        if(progress == 1) {
+                            $("#status").html('文字识别中，请稍候……');
+                        } else {
+                            $("#status").html('上传中，进度：' + progress*100 +'%');
+                        }
+                    }
+                }, false);
+            }
+            return myXhr;
+        },
+        beforeSend: function(){
+			$("#status").html('准备上传..');
+		},
+        success: function(json) { 
+            console.log(json);  
+            
+            $("#ocr-result").val(json);
+            $(".hide-first").show();
+            $(".form-upload").hide();
+            $("#status").html('选择或拖拽图像到这里进行识别');
+            
+            return;
+            
+            var tmpText = '';
+            switch(json.success) {
+                case 1:     /* 没有错误 */
+                    if(json.result.length == 0) {
+                        tmpText = "未识别到文字内容";
+                    } else {
+                        for(var i=0; i<json.result.length; i++) {
+                            tmpText += json.result[i].content;
+                        }
+                    }
+                    break;
+                
+                case 0:
+                    tmpText = "未识别到文字内容";
+                    break;
+                
+                case 10065:
+                    tmpText = "图片长传失败！";
+                    break;
+                
+                default:
+                    tmpText = "文字识别出错！错误内容：未知" +  "\n错误编号：" + json.success;
+            }
+            $("#ocr-result").val(tmpText);
+            $(".hide-first").show();
+            $(".form-upload").hide();
+            $("#status").html('选择或拖拽图像到这里进行识别');
+		},
+        error: function(data) {
+			console.log(data);
+			alert("图片上传出错！错误信息：" + data);
+		},
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+
+}
+
+// url编码
+function urlEncode(str) {
+    return (encodeURIComponent(str).replace(/'/g,"%27").replace(/"/g,"%22"));
+}
+
+
+// 建立一個可存取到該file的url
+function getObjectURL(file) {
+    var url = null;
+    if (window.createObjectURL != undefined) { // basic
+        url = window.createObjectURL(file);
+    } else if (window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+    }
+    return url;
+}
+</script>
+
+<div class="panel panel-default">
+    <div class="panel-heading">工具简介</div>
+    <div class="panel-body">
+        <p>免费的文字在线识别工具，支持多场景下的文字检测识别，能识别所有常用字和大部分生僻字</p>
+        <p>注：图片不宜过大，否则可能导致识别失败！</p>
+        <p>转载自孟坤工具箱http://tool.mkblog.cn/</p>
+    </div>
+</div>
+
+
+<footer class="main-footer">
+    
+
+        
+
+        <!--class="row"-->
+    
+    
+    
+</footer>
+
+</div><div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 1px; height: 1px; z-index: 999999999;"><object id="global-zeroclipboard-flash-bridge" name="global-zeroclipboard-flash-bridge" width="100%" height="100%" type="application/x-shockwave-flash" data="./文字识别 - 孟坤工具箱网页版_files/ZeroClipboard.swf"><param name="allowScriptAccess" value="sameDomain"><param name="allowNetworking" value="all"><param name="menu" value="false"><param name="wmode" value="transparent"><param name="flashvars" value="trustedOrigins=tool.mkblog.cn%2C%2F%2Ftool.mkblog.cn%2Chttp%3A%2F%2Ftool.mkblog.cn&amp;swfObjectId=global-zeroclipboard-flash-bridge&amp;jsVersion=2.3.0"><div id="global-zeroclipboard-flash-bridge_fallbackContent">&nbsp;</div></object></div><!--class="container"中部容器-->
+
+<!--孟坤工具箱网页版通用js文件-->
+<script type="text/javascript" src="./文字识别 - 孟坤工具箱网页版_files/jquery.mktoolbox.js"></script>
+
+<style></body></style>
+
+ 
+ 
+<div id="topcontrol" title="返回顶部" style="position: fixed; bottom: 80px; right: 30px; opacity: 0; cursor: pointer;"><img src="./文字识别 - 孟坤工具箱网页版_files/topback.gif" class="hidden-xs" style="width:54px; height:54px; border:0;"></div></body></html>
