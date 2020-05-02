@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://tool.mkblog.cn/baidu/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Internet PLUS -- Tool</title>
+    <meta name="description" content="找文档找不到？快来试试高级搜索">
+    <meta name="keywords" content="百度搜索,高级搜索,搜索,搜索技巧,精确搜索,搜索秘诀,在线工具箱,工具箱,网页工具箱,孟坤工具箱,孟坤软件,孟坤工具箱网页版">
+    
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="./百度高级搜索 - 孟坤工具箱网页版_files/bootstrap.min.css">
+    
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="./百度高级搜索 - 孟坤工具箱网页版_files/push.js"></script><script src="./百度高级搜索 - 孟坤工具箱网页版_files/hm.js"></script><script src="./百度高级搜索 - 孟坤工具箱网页版_files/jquery.min.js"></script>
+    
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="./百度高级搜索 - 孟坤工具箱网页版_files/bootstrap.min.js"></script>
+    
+    <!-- 页面通用自定义css文件 -->
+    <link rel="stylesheet" href="./百度高级搜索 - 孟坤工具箱网页版_files/style.css">
+    
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!--返回顶部插件-->
+    <script type="text/javascript" src="./百度高级搜索 - 孟坤工具箱网页版_files/scrolltopcontrol.js"></script>
+    
+    
+
+<style>
+* {
+    transition: null;
+	-webkit-transition: null;
+	-moz-transition: null;
+	-o-transition: null;
+	-ms-transition: null;
+}
+
+.panel-body form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+</style>
+
+</head> 
+
+<body>
+
+<div id="particles"></div>
+
+<div class="container nav-main">
+
+
+
+<nav class="navbar navbar-default">
+<!--/.nav-collapse -->
+</div><!--/.container-fluid（100%宽度） -->
+</nav>
+
+</div><!--<div class="container">-->
+
+<div class="container">
+    
+
+<div class="panel panel-default">
+    <div class="panel-heading">百度高级搜索</div>
+    <div class="panel-body text-center">
+        <img src="./百度高级搜索 - 孟坤工具箱网页版_files/logo-yy.gif"><br><br>
+        <form action="http://www.baidu.com/s" target="_blank">
+            <div class="form-group"><div class="input-group has-error">
+                <span class="input-group-addon">必要的关键词</span>
+                <input type="text" class="form-control" name="q1" maxlength="100" data-toggle="tooltip" data-placement="top" title="" data-original-title="搜索时会包含以内全部的关键词">
+            </div></div>
+            
+            <div class="form-group"><div class="input-group has-success">
+                <span class="input-group-addon">不拆分关键词</span>
+                <input type="text" class="form-control" name="q2" maxlength="100" data-toggle="tooltip" data-placement="top" title="" data-original-title="搜索时这些关键词不会被分割">
+            </div></div>
+            
+            <div class="form-group"><div class="input-group has-warning">
+                <span class="input-group-addon">任意的关键词</span>
+                <input type="text" class="form-control" name="q3" maxlength="100" data-toggle="tooltip" data-placement="top" title="" data-original-title="搜索时包含以内任意的关键词">
+            </div></div>
+            
+            <div class="form-group"><div class="input-group">
+                <span class="input-group-addon">排除的关键词</span>
+                <input type="text" class="form-control" name="q4" maxlength="100" data-toggle="tooltip" data-placement="top" title="" data-original-title="搜索结果中不会出现这些关键词">
+            </div></div>
+            
+            <div class="form-group">
+                <a href="javascript:;" onclick="$(&#39;#more&#39;).slideToggle()">点击展开更多</a>   &nbsp;
+                <input class="btn btn-primary" value="百度一下" type="submit">
+            </div>
+            
+            <span id="more" hidden="">
+            
+            <div class="form-group"><div class="input-group">
+                <span class="input-group-addon">文档格式限定</span>
+                <select name="ft" class="form-control">
+                    <option value="" selected="selected">所有网页和文件</option>
+                    <option value="pdf">Adobe Acrobat PDF (.pdf)</option>
+                    <option value="doc">微软 Word (.doc)</option>
+                    <option value="xls">微软 Excel (.xls)</option>
+                    <option value="ppt">微软 Powerpoint (.ppt)</option>
+                    <option value="rtf">RTF 文件 （.rtf)</option>
+                    <option value="all">所有格式</option>
+                </select>
+            </div></div>
+            
+            <div class="form-group"><div class="input-group">
+                <span class="input-group-addon">指定网站搜索</span>
+                <input type="text" class="form-control" name="q6" maxlength="100" placeholder="只搜这个网站的内容。如：baidu.com" data-toggle="tooltip" data-placement="top" title="" data-original-title="前面不要加“http://”">
+            </div></div>
+            
+            <div class="form-group"><div class="input-group">
+                <span class="input-group-addon">关键词的位置</span>
+                <select name="q5" class="form-control">
+                    <option value="" selected="selected">网页的任何地方</option>
+                    <option value="1">仅网页的标题中</option>
+                    <option value="2">仅在网页的URL中</option>
+                </select>
+            </div></div>
+            
+            <div class="form-group"><div class="input-group">
+                <span class="input-group-addon">每页显示条数</span>
+                <select name="rn" class="form-control">
+                    <option value="10" selected="selected">每页显示10条</option>
+                    <option value="20">每页显示20条</option>
+                    <option value="50">每页显示50条</option>
+                </select>
+            </div></div>
+            
+            <div class="form-group"><div class="input-group">
+                <span class="input-group-addon">内容时间限定</span>
+                <select name="lm" class="form-control">
+                    <option value="0" selected="selected">全部时间</option>
+                    <option value="1">最近一天</option>
+                    <option value="7">最近一周</option>
+                    <option value="30">最近一月</option>
+                    <option value="360">最近一年</option>
+                </select>
+            </div></div>
+            
+            <div class="form-group"><div class="input-group">
+                <span class="input-group-addon">内容语言限定</span>
+                <select name="ct" class="form-control">
+                    <option value="0" selected="selected">全部语言</option>
+                    <option value="1">简体中文</option>
+                    <option value="2">繁体中文</option>
+                    <option value="4">英文网页</option>
+                </select>
+            </div></div>
+            <input type="hidden" name="tn" value="baiduadv">
+            </span>
+        </form>
+    </div>
+</div>
+
+<script>
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
+
+
+    
+</footer>
+
+</div><!--class="container"中部容器-->
+
+<!--孟坤工具箱网页版通用js文件-->
+<script type="text/javascript" src="./百度高级搜索 - 孟坤工具箱网页版_files/jquery.mktoolbox.js"></script>
+
+<style></body></style>
+
+ 
+ 
